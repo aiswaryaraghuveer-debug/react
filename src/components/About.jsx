@@ -19,7 +19,7 @@
 
               <div className="mini-facts">
                 <span><MapPin size={15} /> India</span>
-                <span><GraduationCap size={15} /> B.Tech (CS)</span>
+                <span><GraduationCap size={15} /> B.Tech (ECE)</span>
                 <span><Globe2 size={15} /> Explorer</span>
               </div>
             </div>

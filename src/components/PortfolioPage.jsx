@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import AppHeader from "./AppHeader";
 import HomePage from "./HomePage";
 import About from "./About";
@@ -8,6 +9,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 function PortfolioPage() {
 const [dark, setDark] = useState(true);
+const location = useLocation();
 const publicBase = import.meta.env.BASE_URL;
 const projects = [
   {
@@ -40,6 +42,14 @@ const skills = [
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+  useEffect(() => {
+    const sectionId = location.hash.slice(1);
+    if (sectionId) {
+      window.requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }, [location.hash]);
 function SectionHeading({ number, title }) {
   return (
     <div className="section-heading">

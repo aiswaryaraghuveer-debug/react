@@ -1,22 +1,29 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import headerStyles from "./AppHeader.CSS?raw";
-
 const defaultNavItems = ["home", "about", "experience", "skills", "contact"];
 
-function AppHeader({ dark, onToggleTheme, navItems = defaultNavItems }) {
+function AppHeader({ dark = true, onToggleTheme, navItems = defaultNavItems }) {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isChatbot = pathname === "/chatbot";
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
+    if (pathname !== "/") {
+      navigate(`/#${id}`);
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <style>{headerStyles}</style>
       <header className="navbar">
-        <button className="brand" onClick={() => scrollTo("home")}>
+        <button className="brand" onClick={() => (isChatbot ? navigate("/") : scrollTo("home"))}>
           Ash <span>♥</span>
         </button>
 
@@ -27,16 +34,24 @@ function AppHeader({ dark, onToggleTheme, navItems = defaultNavItems }) {
             </button>
           ))}
         </nav>
+        <button
+          className="primary-button"
+          onClick={() => navigate(isChatbot ? "/" : "/chatbot")}
+        >
+          {isChatbot ? "Back to portfolio" : "Ask me anything"}
+        </button>
 
         <div className="nav-actions">
-          <button
-            className="theme-toggle"
-            onClick={onToggleTheme}
-            aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
-          >
-            {dark ? <Moon size={15} /> : <Sun size={15} />}
-            <span className="toggle-dot" />
-          </button>
+          {onToggleTheme && (
+            <button
+              className="theme-toggle"
+              onClick={onToggleTheme}
+              aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
+            >
+              {dark ? <Moon size={15} /> : <Sun size={15} />}
+              <span className="toggle-dot" />
+            </button>
+          )}
 
           <button
             className="menu-button"
