@@ -15,8 +15,8 @@ function HomePage({scrollTo, publicBase}) {
             </h1>
 
             <p className="hero-description">
-              I turn ideas into interactive web experiences using React,
-              JavaScript and a lot of curiosity. When I'm not coding, you'll
+             loves turning ideas into intuitive, interactive web experiences with React and JavaScript, 
+             driven by curiosity, creativity, and a passion for learning. When I'm not coding, you'll
               find me creating, learning or planning my next adventure.
             </p>
 
