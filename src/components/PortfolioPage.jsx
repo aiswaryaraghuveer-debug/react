@@ -4,6 +4,7 @@ import AppHeader from "./AppHeader";
 import HomePage from "./HomePage";
 import About from "./About";
 import Skills from "./Skills";
+import MyProject from "./MyProjects";
 import Experience from "./Experience";
 import Contact from "./Contact";
 import Footer from "./Footer";
@@ -29,7 +30,18 @@ const projects = [
     image: `${publicBase}images/banking.avif`
   },
 ];
-
+const myprojects = [
+  {
+    title: "ChatBot",
+    type: "Chatbot for Portfolio",
+    description:
+      "A chatbot application for showcasing portfolio information and able to run basuc fun aactivities.This is without backend.",
+    tags: ["React", "JavaScript", "CSS"],
+    image: `${publicBase}images/chatbot.jpg`,
+    inportfolio:"/chatbot"
+  },
+   
+];
 const skills = [
   ["React", "Advanced", "react"],
   ["JavaScript", "Advanced", "js"],
@@ -86,6 +98,7 @@ function SkillIcon({ type }) {
         <HomePage scrollTo={scrollTo} publicBase={publicBase} />
         <About SectionHeading={SectionHeading} />
         <Skills skills={skills} SectionHeading={SectionHeading} SkillIcon={SkillIcon} />
+        <MyProject SectionHeading={SectionHeading} myprojects={myprojects} />
         <Experience SectionHeading={SectionHeading} TimelineItem={TimelineItem} projects={projects} />
         <Contact />
       </main>

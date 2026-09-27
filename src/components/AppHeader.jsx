@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import headerStyles from "./AppHeader.CSS?raw";
-const defaultNavItems = ["home", "about", "experience", "skills", "contact"];
+const defaultNavItems = ["home", "about","my projects", "experience", "skills", "contact"];
 
 function AppHeader({ dark = true, onToggleTheme, navItems = defaultNavItems }) {
   const navigate = useNavigate();

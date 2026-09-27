@@ -61,9 +61,9 @@ const portfolioData = {
   ],
 
   contact: {
-    email: "your-email@example.com",
-    github: "https://github.com/yourusername",
-    linkedin: "https://www.linkedin.com/in/yourusername/"
+    email: "aiswaryaraghuveer@gmail.com",
+    github: "https://github.com/aiswaryaraghuveer-debug/react",
+    linkedin: "https://www.linkedin.com/in/aiswarya-raghuveer-10a827221"
   }
 };
 

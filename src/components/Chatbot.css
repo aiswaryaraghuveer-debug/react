@@ -143,7 +143,7 @@ button {
 
   border-radius: 14px;
 
-  background: #7203b7;
+    background: linear-gradient(135deg, #a312d7 60%, white);
   color: #080808;
 
   font-weight: 700;
@@ -259,7 +259,7 @@ button {
 
   border-radius: 10px;
 
-  background: #7203b7;
+    background: linear-gradient(135deg, #a312d7 60%, white);
   color: black;
 
   font-size: 18px;
@@ -318,7 +318,7 @@ button {
 }
 
 .bot-avatar {
-  background: #7203b7;
+    background: linear-gradient(135deg, #a312d7 60%, white);
   color: black;
 }
 
@@ -532,7 +532,7 @@ button {
 
   border-radius: 10px;
 
-  background: #7203b7;
+  background: linear-gradient(135deg, #a312d7 60%, white);
   color: black;
 
   font-size: 20px;

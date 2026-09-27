@@ -3,7 +3,7 @@ import { GraduationCap } from "lucide-react";
 function Experience({ SectionHeading, TimelineItem, projects }) {
     return (
          <section className="section experience-section" id="experience">
-          <SectionHeading number="03" title="Experience" />
+          <SectionHeading number="04" title="Experience" />
 
           <div className="experience-grid">
             <div className="timeline">
