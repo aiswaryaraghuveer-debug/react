@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import {
   ArrowDown,
   ArrowUp,
@@ -12,9 +13,6 @@ import {
   GraduationCap,
   Heart,
   Code2,
-  Moon,
-  Sun,
-  Menu,
   X,
   ExternalLink,
   Sparkles,
@@ -22,6 +20,7 @@ import {
   Smartphone,
   Globe2
 } from "lucide-react";
+import AppHeader from "./components/AppHeader";
 
 const publicBase = import.meta.env.BASE_URL;
 const profileImage = `${publicBase}images/AiswaryaProfilePhoto.png`;
@@ -55,51 +54,16 @@ const skills = [
   ["Figma", "Intermediate", "figma"]
 ];
 
-function App() {
+function PortfolioPage() {
   const [dark, setDark] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
   };
 
   return (
     <div className={`site ${dark ? "dark" : "light"}`}>
-      <header className="navbar">
-        <button className="brand" onClick={() => scrollTo("home")}>
-          Ash <span>♥</span>
-        </button>
-
-        <nav className={menuOpen ? "nav-links open" : "nav-links"}>
-          {["home", "about", "experience", "skills", "contact"].map(
-            (item) => (
-              <button key={item} onClick={() => scrollTo(item)}>
-                {item[0].toUpperCase() + item.slice(1)}
-              </button>
-            )
-          )}
-        </nav>
-
-        <div className="nav-actions">
-          <button
-            className="theme-toggle"
-            onClick={() => setDark(!dark)}
-            aria-label="Toggle theme"
-          >
-            {dark ? <Moon size={15} /> : <Sun size={15} />}
-            <span className="toggle-dot" />
-          </button>
-
-          <button
-            className="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-          >
-            {menuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </header>
+      <AppHeader dark={dark} onToggleTheme={() => setDark((current) => !current)} />
 
       <main>
         <section className="hero section" id="home">
@@ -320,6 +284,14 @@ function App() {
         <button onClick={() => scrollTo("home")} aria-label="Back to top"><ArrowUp /></button>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<PortfolioPage />} />
+    </Routes>
   );
 }
 
