@@ -23,8 +23,8 @@ import {
   Globe2
 } from "lucide-react";
 
-const profileImage =
-  "/images/AiswaryaProfilePhoto.png";
+const publicBase = import.meta.env.BASE_URL;
+const profileImage = `${publicBase}images/AiswaryaProfilePhoto.png`;
 
 const projects = [
   {
@@ -33,8 +33,7 @@ const projects = [
     description:
       "A banking Application which deals with Finanace,Money Transfer,Interac.",
     tags: ["React", "Polymer", "API"],
-    image:
-      "../images/webapp.avif"
+    image: `${publicBase}images/webapp.avif`
   },
    {
     title: "Canada Bank Mobile App",
@@ -42,8 +41,7 @@ const projects = [
     description:
       "A banking Application which deals with Finanace,Money Transfer,Interac.",
     tags: ["React-Native", "Redux", "iOS", "Android"],
-    image:
-      "../images/banking.avif"
+    image: `${publicBase}images/banking.avif`
   },
 ];
 
@@ -125,7 +123,7 @@ function App() {
                 Experience and stuff? <ArrowUpRight size={17} />
               </button>
 
-              <a className="outline-button" href="../images/Aiswarya-Raghuveer.pdf" download>
+              <a className="outline-button" href={`${publicBase}images/Aiswarya-Raghuveer.pdf%20(2).pdf`} download>
                 <Download size={16} /> Download Resume
               </a>
             </div>
